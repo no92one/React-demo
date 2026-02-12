@@ -1,4 +1,4 @@
-import type Person from "./Person.ts";
+import type Person from "../interfaces/Person.ts";
 
 export default function PeopleCard({ person }: { person: Person }) {
     const { name, age, hobby }: { name: string, age: number, hobby: string } = person

@@ -1,23 +1,21 @@
 import PeopleCard from "./PeopleCard.tsx"
-import type Person from "./Person.ts"
+import type Person from "../interfaces/Person.ts"
+import { useContext } from "react"
+import { GlobalContext } from "../GlobalContext.tsx"
 
 type PeopleListProps = {
     peopleData: Person[],
-    changeFilterText: Function,
-    filterText: string
 }
 
 export default function PeopleList(props: PeopleListProps) {
     console.log("Props - ", props)
 
-    const { peopleData, changeFilterText, filterText } = props
+    const { peopleData } = props
     console.log("People data - ", peopleData)
 
+    const { filterText }: { filterText: string } = useContext(GlobalContext)
+
     return <>
-        <label>
-            Filter on:
-            <input type="text" onChange={e => changeFilterText(e.target.value)} placeholder="Filter text" />
-        </label>
         {peopleData
             .filter(person => person.name.toLowerCase().includes(filterText.toLowerCase()) || filterText.trim() == "")
             .map(person => <PeopleCard person={person} />)}
