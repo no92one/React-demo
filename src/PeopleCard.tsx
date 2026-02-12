@@ -1,4 +1,6 @@
-export default function PeopleCard({ person }: { person: any }) {
+import type Person from "./Person.ts";
+
+export default function PeopleCard({ person }: { person: Person }) {
     const { name, age, hobby }: { name: string, age: number, hobby: string } = person
     console.log(`person - `, person);
     return <>
