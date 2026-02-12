@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-const GlobalContext = createContext()
+const GlobalContext = createContext(null)
 
 function GlobalProvider({ children }: { children: any }) {
     const [filterText, setFilterText] = useState("");
